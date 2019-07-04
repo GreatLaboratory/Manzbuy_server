@@ -17,17 +17,30 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 // transaction과 관련된 설정을 자동으로 해준다?
 public class DBConfig implements TransactionManagementConfigurer {
 	
-	private String DriverClassName = "jdbc:mysql://manzbuy.cydn8qcpi5ax.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
+	private String driverClassName = "com.mysql.cj.jdbc.Driver";
+	
+	
+	
+	private String url = "jdbc:mysql://manzbuy.cydn8qcpi5ax.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
 	
 	private String username = "user";
 	
 	private String password = "cartopia95";
 	
+
+//	private String url = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
+//
+//	private String username = "root";
+//
+//	private String password = "1234";
+
+	
 	@Bean
 	// 아래의 bean은 메소드쓰는 방식처럼 작성한다.
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(DriverClassName);
+		dataSource.setDriverClassName(driverClassName);
+		dataSource.setUrl(url);
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
 		return dataSource;
