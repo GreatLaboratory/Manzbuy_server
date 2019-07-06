@@ -27,9 +27,9 @@ public class DBConfig implements TransactionManagementConfigurer {
 	
 	private String password = "cartopia95";
 	
-
+//  <로컬에서의 테스트코드>
 //	private String url = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
-//
+//	
 //	private String username = "root";
 //
 //	private String password = "1234";

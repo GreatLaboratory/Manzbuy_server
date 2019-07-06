@@ -41,7 +41,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(final ViewControllerRegistry registry) {
 		// 특정 url에 대한 처리를 컨트롤러 클래스를 작성하지 않고 매핑할 수 있도록 해주는 메소드
-		// "/"라고 요청이 들어오면 "index"라는 이름의 뷰로 보여주게하는 역할.
+		// "/"라고 요청이 들어오면 "uploadform"라는 이름의 뷰로 보여주게하는 역할.
 		System.out.println("addViewControllers가 호출됩니다. ");
 		registry.addViewController("/").setViewName("uploadform");
 	}
@@ -62,6 +62,4 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 		multipartResolver.setMaxUploadSize(10485760); // 1024*1024*10 -> 최대 10메가 파일
 		return multipartResolver;
 	}
-	
-	
 }

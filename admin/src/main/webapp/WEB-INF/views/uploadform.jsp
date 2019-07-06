@@ -7,13 +7,14 @@
 <title>uploadform</title>
 </head>
 <body>
-<h1>상품 업로드</h1>
+<h1>Manzbuy ***마켓 상품 업로드</h1>
 <br><br>
  <form method="post" action="upload" enctype="multipart/form-data">
-	제품 이름 : <input type="text" name = "product_name"><br>
-	가격 : <input type="text" name = "price"><br>
-    file : <input type="file" name="file"><br>
-    <input type="submit">
- </form>    
+	Product name : <input type="text" name = "product_name"><br>
+	Price : <input type="text" name = "price"><br>
+    Image file : <input type="file" name="file"><br>
+    
+    <input type="submit" value="업로드">
+ </form>
 </body>
 </html>
