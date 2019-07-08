@@ -28,21 +28,26 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/login")
-	public String login(@RequestParam(name = "id", required = true) String id,
-			@RequestParam(name = "passwd", required = true) String passwd, HttpSession session,
+	public String login(@RequestParam(name = "id", required = true) String id, // login페이지에서 id입력하면 넘어오는 입력값
+			@RequestParam(name = "passwd", required = true) String passwd, // login페이지에서 password입력하면 넘어오는 입력값
+			HttpSession session,
 			RedirectAttributes redirectAttr) {
 
 		List<AdminInfo> list = adminInfoService.getAdminInfos();
-
+		// db에 있는 admininfo테이블에서 admin관리자들의 로그인정보를 dto형태로 전부 불러오기
+		
 		String view = "redirect:/loginform";
 		
 		for (int i = 0; i < list.size(); i++) {
 			
 			if(list.get(i).getId().equals(id) && list.get(i).getPasswd().equals(passwd)) {
+				// 로그인 성공했을 때
 				session.setAttribute("adminWho", id);
 				view = "uploadform";
 				break;
 			} 
+			
+			// 로그인 실패했을 때
 			if(!list.get(i).getId().equals(id)) {
 				redirectAttr.addFlashAttribute("errorMessage", "존재하지않는 아이디입니다.");
 			} else if (list.get(i).getId().equals(id) && !list.get(i).getPasswd().equals(passwd)) {
