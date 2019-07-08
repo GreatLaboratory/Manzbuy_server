@@ -7,7 +7,7 @@
 <title>uploadform</title>
 </head>
 <body>
-<h1>Manzbuy ***마켓 상품 업로드</h1>
+<h1>${sessionScope.adminWho}님의 마켓 상품 업로드</h1>
 <br><br>
  <form method="post" action="upload" enctype="multipart/form-data">
 	Product name : <input type="text" name = "product_name"><br>

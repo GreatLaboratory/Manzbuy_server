@@ -10,5 +10,5 @@ import org.springframework.context.annotation.Import;
 @Import({DBConfig.class})
 // 위에서 컴포넌트들을 읽어들일 때 내부적으로 db연동작업이 기본이니까 import시키는 것이다.
 public class ApplicationConfig {
-
+	
 }

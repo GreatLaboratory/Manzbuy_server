@@ -20,7 +20,7 @@ public class DBConfig implements TransactionManagementConfigurer {
 	private String driverClassName = "com.mysql.cj.jdbc.Driver";
 	
 	
-	
+//	<EC2서버의 접속코드>
 	private String url = "jdbc:mysql://manzbuy.cydn8qcpi5ax.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
 	
 	private String username = "user";

@@ -19,10 +19,6 @@ public class FileController {
 	@Autowired
 	ImageInfoService imageInfoService;
 
-	@GetMapping(path = "/uploadform")
-	public String uploadform() {
-		return "uploadform";
-	}
 	
 	@PostMapping(path = "/upload")
 	public String upload(@RequestParam("file") MultipartFile file) {
@@ -33,11 +29,14 @@ public class FileController {
 		
 		//로그인세션 문자열값으로 저장 디렉토리나눠서 저장하도록 하자 **
 		//"/home/ubuntu/test-image/" 이건 정말 바보같은 url셋팅이다.....
+		
+//		<EC2서버에서의 설정코드>
 		String saveFolder = "/var/lib/tomcat8/webapps/admin/img/" + file.getOriginalFilename();
 		String imgurl = "www.manzbuy.tk/admin/img/" + file.getOriginalFilename();
 		
 		// <로컬에서의 테스트코드>
-		//String imgurl = "C:/Temp/" + file.getOriginalFilename();
+//		String imgurl = "C:/Temp/" + file.getOriginalFilename();
+//		String saveFolder = "C:/Temp/" + file.getOriginalFilename();
 		
 		imageInfo.setFilename(file.getOriginalFilename());
 		imageInfo.setSize(file.getSize());

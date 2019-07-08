@@ -8,7 +8,7 @@
 </head>
 <body>
 <% 
-	response.sendRedirect("test");
+	response.sendRedirect("loginform");
 %>
 </body>
 </html>
