@@ -47,6 +47,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
+	// 리졸버
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
 		// 적절한 view resolver가 실제 뷰 이름을 가지고 어떤 뷰인지에 대한 정보를 찾아낼 수 있게 해준다.
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -56,6 +57,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 	}
 	
 	@Bean
+	// 리졸버
 	public MultipartResolver multipartResolver() {
 		// dispatcherservlet이 multipart요청을 받았았을 때 이러한 설정으로 받아들여라 하는 설정클래스
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import tk.manzbuy.admin.dto.ImageInfo;
 import tk.manzbuy.admin.service.ImageInfoService;
@@ -21,8 +22,10 @@ public class FileController {
 
 	
 	@PostMapping(path = "/upload")
-	public String upload(@RequestParam("file") MultipartFile file) {
+	public ModelAndView upload(@RequestParam("files") MultipartFile file) {
 		// 사용자가 업로드하려고 선택한 파일은 위에 있는 MultipartFile 객체로 전달이 된다.
+		
+		ModelAndView mv = new ModelAndView("/uploadok");
 		
 		// 업로드한 파일 정보를 ImageInfo dto에다가 넣고
 		ImageInfo imageInfo = new ImageInfo();
@@ -31,12 +34,12 @@ public class FileController {
 		//"/home/ubuntu/test-image/" 이건 정말 바보같은 url셋팅이다.....
 		
 //		<EC2서버에서의 설정코드>
-		String saveFolder = "/var/lib/tomcat8/webapps/admin/img/" + file.getOriginalFilename();
-		String imgurl = "www.manzbuy.tk/admin/img/" + file.getOriginalFilename();
+//		String saveFolder = "/var/lib/tomcat8/webapps/admin/img/" + file.getOriginalFilename();
+//		String imgurl = "www.manzbuy.tk/admin/img/" + file.getOriginalFilename();
 		
 		// <로컬에서의 테스트코드>
-//		String imgurl = "C:/Temp/" + file.getOriginalFilename();
-//		String saveFolder = "C:/Temp/" + file.getOriginalFilename();
+		String imgurl = "http://manzbuy.tk/admin/img/" + file.getOriginalFilename();
+		String saveFolder = "C:/Users/GreatLaboratory/git/Manzbuy_server/admin/src/main/webapp/img/" + file.getOriginalFilename();
 		
 		imageInfo.setFilename(file.getOriginalFilename());
 		imageInfo.setSize(file.getSize());
@@ -57,8 +60,10 @@ public class FileController {
 		// 여기서 dto에 잘 넣어져 있는 필드값들을 똑같은 컬럼명으로 되어있는 테이블에 저장
 		imageInfoService.addImageInfo(imageInfo);
 
-		// 여기서부턴 db에 저장된 정보를 json파일로 변환해서 페이지에 올려야함.
+		mv.addObject("imageInfo", imageInfo);
 		
-		return "uploadok";
+		
+		
+		return mv;
 	}
 }

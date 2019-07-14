@@ -12,7 +12,7 @@
  <form method="post" action="upload" enctype="multipart/form-data">
 	Product name : <input type="text" name = "product_name"><br>
 	Price : <input type="text" name = "price"><br>
-    Image file : <input type="file" name="file"><br>
+    Image file : <input type="file" name="files" multiple="multiple"><br> <!-- multiple속성과 값은 파일을 여러 개 업로드할 수 있는 기능 -->
     
     <input type="submit" value="업로드">
  </form>

@@ -21,18 +21,18 @@ public class DBConfig implements TransactionManagementConfigurer {
 	
 	
 //	<EC2서버의 접속코드>
-	private String url = "jdbc:mysql://manzbuy.cydn8qcpi5ax.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
-	
-	private String username = "user";
-	
-	private String password = "cartopia95";
+//	private String url = "jdbc:mysql://manzbuy.cydn8qcpi5ax.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
+//	
+//	private String username = "user";
+//	
+//	private String password = "cartopia95";
 	
 //  <로컬에서의 테스트코드>
-//	private String url = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
-//	
-//	private String username = "root";
-//
-//	private String password = "1234";
+	private String url = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
+	
+	private String username = "root";
+
+	private String password = "1234";
 
 	
 	@Bean
